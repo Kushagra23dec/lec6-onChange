@@ -1,0 +1,26 @@
+{
+  "name": "lec6-onchange",
+  "version": "1.0.0",
+  "description": "No need to click the button. Just type and it will fillter out the cards.",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "start parcel build index.html"
+  },
+  "keywords": [
+    "onChange",
+    "map",
+    "filter",
+    "useState."
+  ],
+  "author": "Kushagra Upadhyaya",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.8.2",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
