@@ -3,58 +3,54 @@ import Card from "./Card";
  
 import {restaurantList} from "../contants.js";
 
-const Search = (setRestaurants) =>{
-    const data = "";
 
+
+
+ 
+const Body = ()=>{
+    const [restaurants,setRestaurants] = useState(restaurantList);
     const [searchtxt,setSearchtxt]  = useState("");
-    // if(searchtxt===""){
-    //     setRestaurants(restaurantList);
-    // }
-     function filterData(searchtxt) {
-        if(searchtxt != ""){
-            // console.log(restaurantList);
-            setRestaurants(
-                restaurantList.filter((e)=>{return(
-                e.data.name.toLowerCase().includes(searchtxt)
-            );})
     
-            ) 
-        }
+    function filterData(searchtxt){
+        
         if(searchtxt === "" || searchtxt === " "){
-            setRestaurants(restaurantList)
+             return restaurantList;
         }
+
+       const data = restaurantList.filter((e)=>{
+        return e.data.name.toLowerCase().includes(searchtxt.toLowerCase())
+       })
+        
+        //  console.log(data);
+         return data;
+    
     }
 
-    
-
     return(
-      
+
+        <div className="body-container">
+ 
         <div className="search-input-div">
 
-        <input className="search-input" type="text" placeholder="Search" value={searchtxt} onChange={
+        <input className="search-input" 
+            type="text" placeholder="Search"
+            value={searchtxt} onChange={
             (e)=>{   
-                setSearchtxt(e.target.value)
-                filterData(e.target.value)
-                 
+            setSearchtxt(e.target.value)
+            const data = filterData(e.target.value)
+            setRestaurants(data);
+             
+            // console.log(data);
             }}  />
  
         </div>
-        
-    );
-}
 
-const Body = ()=>{
-    const [restaurants,setRestaurants] = useState(restaurantList);
 
-    return(
-        <div className="body-container">
-
-            {Search(setRestaurants)}
             <div className="cards-collection-div">
 
             {restaurants.map((restaurant)=>{
                 return(
-                    <Card key={restaurant.data.id} restaurant={restaurant.data} />
+                    <Card key={restaurant.data.id} {...restaurant.data} />
                 );
             })}
              
