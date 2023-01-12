@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import Card from "./Card";
- 
 import {restaurantList} from "../contants.js";
-
-
-
-
  
 const Body = ()=>{
     const [restaurants,setRestaurants] = useState(restaurantList);
