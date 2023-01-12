@@ -2,24 +2,23 @@ import React, { useState } from "react";
 import Card from "./Card";
 import {restaurantList} from "../contants.js";
  
+function filterData(searchtxt){
+        
+    if(searchtxt === "" || searchtxt === " "){
+         return restaurantList;
+    }
+
+    const data = restaurantList.filter((e)=>{
+    return e.data.name.toLowerCase().includes(searchtxt.toLowerCase())
+   })
+    
+     return data;
+ 
+}
+
 const Body = ()=>{
     const [restaurants,setRestaurants] = useState(restaurantList);
     const [searchtxt,setSearchtxt]  = useState("");
-     
-    function filterData(searchtxt){
-        
-        if(searchtxt === "" || searchtxt === " "){
-             return restaurantList;
-        }
-
-       const data = restaurantList.filter((e)=>{
-        return e.data.name.toLowerCase().includes(searchtxt.toLowerCase())
-       })
-        
-     
-         return data;
-    
-    }
 
     return(
 
@@ -34,8 +33,7 @@ const Body = ()=>{
             setSearchtxt(e.target.value)
             const data = filterData(e.target.value)
             setRestaurants(data);
-             
-            // console.log(data);
+ 
             }}  />
  
         </div>
