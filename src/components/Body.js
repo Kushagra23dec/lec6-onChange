@@ -5,7 +5,7 @@ import {restaurantList} from "../contants.js";
 const Body = ()=>{
     const [restaurants,setRestaurants] = useState(restaurantList);
     const [searchtxt,setSearchtxt]  = useState("");
-    
+     
     function filterData(searchtxt){
         
         if(searchtxt === "" || searchtxt === " "){
@@ -16,7 +16,7 @@ const Body = ()=>{
         return e.data.name.toLowerCase().includes(searchtxt.toLowerCase())
        })
         
-        //  console.log(data);
+     
          return data;
     
     }
