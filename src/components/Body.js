@@ -15,7 +15,7 @@ const Search = (setRestaurants) =>{
             // console.log(restaurantList);
             setRestaurants(
                 restaurantList.filter((e)=>{return(
-                e.data.name.toLowerCase().includes(searchtxt)
+                e.data.name.toLowerCase().includes(searchtxt.toLowerCase())
             );})
     
             ) 
